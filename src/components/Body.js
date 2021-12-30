@@ -7,7 +7,7 @@ const Body = () => {
     return (
        <BodyContainer>
            <BodyBg>
-               <VideoBg src={ BgVideo } type="video/mp4" autoPlay loop muted playsInline/>
+               <VideoBg src={ BgVideo } type="video/mp4" autoPlay loop muted playsInline />
            </BodyBg>
            <BodyContent>
                <BodyItems>
@@ -97,4 +97,5 @@ const BodyH1 = styled.h1`
 const BodyP = styled.p`
     font-size: clamp(1rem, 3vw, 3rem);
     margin-bottom: 2rem;
+    font-weight: 400;
 `
