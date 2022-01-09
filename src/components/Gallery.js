@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Button } from "./Button"
 import { ImLocation } from 'react-icons/im'
 
@@ -17,9 +17,9 @@ const Gallery = ({heading}) => {
               name
               img {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
+                    gatsbyImageData(
+                        layout: FULL_WIDTH
+                    )
                 }
               }
             }
@@ -32,9 +32,11 @@ const Gallery = ({heading}) => {
         data.allGalleryJson.edges.forEach((item, index) => {
             galleryArray.push(
                 <ProductCard key={index}>
-                    <ProductImg
+                    <ProductImage 
                         alt={item.node.alt}
-                        fluid={item.node.img.childImageSharp.fluid} />
+                        image={item.node.img.childImageSharp.gatsbyImageData}
+                        className="ProductImage"
+                    />
                     <ProductInfo>
                         <TextWrap>
                             <ImLocation/>
@@ -96,7 +98,7 @@ const ProductCard = styled.div`
     broder-radius: 10px;
     transition: 0.2s ease;
 `
-const ProductImg = styled(Img)`
+const ProductImage = styled(GatsbyImage)`
     height: 100%;
     max-width: 100%;
     position: absolute;

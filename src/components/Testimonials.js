@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image"
 import {IoMdCheckmarkCircleOutline} from 'react-icons/io'
 // import {FaRegLightbulb} from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -15,9 +15,9 @@ const Testimonials = () => {
               msg
               img {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
+                    gatsbyImageData(
+                        layout: FULL_WIDTH
+                    )
                 }
               }
             }
@@ -58,7 +58,7 @@ const Testimonials = () => {
                 </ColumnOne>
                 <ColumnTwo>
                     {data.allTestimonialsJson.edges.map((item, index) => (
-                        <Images key={index} fluid={item.node.img.childImageSharp.fluid} />
+                        <Images key={index} image={item.node.img.childImageSharp.gatsbyImageData} />
                     ))}
                 </ColumnTwo>
             </ContentWrapper>
@@ -124,7 +124,7 @@ const ColumnTwo = styled.div`
         grid-template-columns: 1fr;
     }
 `
-const Images = styled(Img)`
+const Images = styled(GatsbyImage)`
     border-radius: 10px;
     height: 100%;
 `
