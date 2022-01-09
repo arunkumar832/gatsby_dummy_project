@@ -35,7 +35,6 @@ const Gallery = ({heading}) => {
                     <ProductImage 
                         alt={item.node.alt}
                         image={item.node.img.childImageSharp.gatsbyImageData}
-                        className="ProductImage"
                     />
                     <ProductInfo>
                         <TextWrap>
@@ -101,7 +100,6 @@ const ProductCard = styled.div`
 const ProductImage = styled(GatsbyImage)`
     height: 100%;
     max-width: 100%;
-    position: absolute;
     border-radius: 10px;
     filter: brightness(70%);
     transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
