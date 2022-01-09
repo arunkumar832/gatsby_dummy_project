@@ -32,9 +32,10 @@ const Gallery = ({heading}) => {
         data.allGalleryJson.edges.forEach((item, index) => {
             galleryArray.push(
                 <ProductCard key={index}>
-                    <ProductImage 
+                    <GatsbyImage 
                         alt={item.node.alt}
                         image={item.node.img.childImageSharp.gatsbyImageData}
+                        className='ProductImage'
                     />
                     <ProductInfo>
                         <TextWrap>
@@ -96,18 +97,21 @@ const ProductCard = styled.div`
     position: relative;
     broder-radius: 10px;
     transition: 0.2s ease;
-`
-const ProductImage = styled(GatsbyImage)`
-    height: 100%;
-    max-width: 100%;
-    border-radius: 10px;
-    filter: brightness(70%);
-    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    .ProductImage{
+        height: 100%;
+        max-width: 100%;
+        border-radius: 10px;
+        filter: brightness(70%);
+        transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    &:hover {
-        filter: brightness(100%);
+        &:hover {
+            filter: brightness(100%);
+        }
     }
 `
+// const ProductImage = styled(GatsbyImage)`
+    
+// `
 const ProductInfo = styled.div`
     display: flex;
     flex-direction: column;
