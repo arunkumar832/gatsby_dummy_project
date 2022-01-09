@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import {IoMdCheckmarkCircleOutline} from 'react-icons/io'
-import {FaRegLightbulb} from 'react-icons/fa'
+// import {FaRegLightbulb} from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
 
 const Testimonials = () => {
@@ -60,7 +60,6 @@ const Testimonials = () => {
                     {data.allTestimonialsJson.edges.map((item, index) => (
                         <Images key={index} fluid={item.node.img.childImageSharp.fluid} />
                     ))}
-                    <Images />
                 </ColumnTwo>
             </ContentWrapper>
         </TestimonialsContainer>
