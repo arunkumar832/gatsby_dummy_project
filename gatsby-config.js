@@ -4,6 +4,10 @@ module.exports = {
     description: `This dummy website is developed to test gatsby (static site generator), netlify (CDN)`,
     author: `@arunkumar`
   },
+  flags: {
+    PARALLEL_QUERY_RUNNING: true,
+    LAZY_IMAGES: true
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
